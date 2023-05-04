@@ -1,0 +1,116 @@
+﻿@using TUSO.Domain.Dto
+@model TUSO.Domain.Dto.RecoveryRequestDto
+
+@{
+    ViewData["Title"] = "Recovery Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+/*
+ * Created by: Emon
+ * Date created: 19.09.2022
+ * Last modified: 19.09.2022
+ * Modified by: Emon
+ */
+
+<script src="~/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="~/js/RecoveryRequest.js"></script>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrapper">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Configure</a>
+                                </li>
+
+                                <li class="breadcrumb-item active"> Recovery Request </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <!-- Validation -->
+            <section class="bs-validation">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row" id="basic-table">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Recovery Request</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table datatables-basic">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sl</th>
+                                                         <th>UserName</th>
+                                                         <th>Description</th>
+                                                         <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody id="recoveryRequestdata">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Button trigger modal -->
+
+                    <!-- Modal -->
+                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <form id="jquery-val-form" method="post" class="add-new-record modal-content pt-0">
+                                 <div class="modal-body">
+                                    <input id="userId" type="hidden" asp-for="UserId" />
+                                    <input id="oid" type="hidden" asp-for="OID" />
+                                    <input id="status" type="hidden" asp-for="Status" />
+                                    <div class="mb-1">
+                                       <label class="form-label" asp-for="Password">New Password</label>
+                                       <input id="password" type="password" required  class="form-control" placeholder="*******" asp-for="Password" autocomplete="off" />
+                                       <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="mb-1">
+                                       <label class="form-label" asp-for="ConfirmPassword">Confirm Password</label>
+                                       <input id="confirmPassword" required onkeyup="confirmPasswordValidation()" type="password" class="form-control" placeholder="*******" asp-for="ConfirmPassword" autocomplete="off" />
+                                       <p><span id='message'></span></p>
+                                       <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    </div>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" id="recoveryRequest-btn" class="btn btn-primary" asp-controller="UserAccount" asp-action="RecoveryRequest" action="POST">Submit</button>                                    
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

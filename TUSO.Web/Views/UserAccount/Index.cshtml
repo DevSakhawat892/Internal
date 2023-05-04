@@ -1,0 +1,105 @@
+﻿@using TUSO.Domain.Entities
+@model TUSO.Domain.Entities.UserAccount
+
+@{
+    ViewData["Title"] = "UserAccount list";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var roles = ViewBag.RoleList as List<Role> ?? new List<Role>();
+    var countries = ViewBag.CountryList as List<Country> ?? new List<Country>();
+    var provinces = ViewBag.ProvinceList as List<Province> ?? new List<Province>();
+    var districts = ViewBag.DistrictList as List<District> ?? new List<District>();
+    var facilities = ViewBag.FacilityList as List<Facility> ?? new List<Facility>();
+}
+
+<script src="/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="/js/userAccount.js"></script>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrapper">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Configure</a>
+                                </li>
+
+                                <li class="breadcrumb-item active"> User account </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <!-- Validation -->
+            <section class="bs-validation">
+                <div class="row">
+                    <!--District List-->
+                    <div class="col-12">
+                        <div class="row" id="basic-table">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">User Account</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table datatables-basic">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sl</th>
+                                                        <th>Fullname</th>
+                                                        <th>Role</th>
+                                                        <th>Province</th>
+                                                        <th>District</th>
+                                                        <th>Facility</th>
+                                                        <th>Designation</th>
+                                                        <th>Email</th>
+                                                        <th>Phone</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Modal-Add/Edit-->
+                   @* <div class="modal modal-slide-in fade" id="modals-slide-in">
+                        <div class="modal-dialog sidebar-sm">
+                            <form id="jquery-val-form" method="post" class="add-new-record modal-content pt-0">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                                <div class="modal-header mb-1">
+                                    <h5 class="modal-title">District</h5>
+                                </div>
+                                <input id="OID" type="hidden" asp-for="OID"/>
+                                
+                                <div class="modal-body flex-grow-1">
+                                   
+                                  
+
+                                    <button type="submit" class="btn btn-primary data-submit me-1" asp-controller="District" asp-action="Index" action="POST">Submit</button>
+                                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>*@
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

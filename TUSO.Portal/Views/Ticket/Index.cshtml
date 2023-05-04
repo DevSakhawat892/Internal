@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .btn-primary{
+        background-color:#28a5e5 !important;
+    }
+    .hero {
+     min-height: 0 ! important; 
+     padding: 105px 0 0px 0 !important;
+} 
+.middle{
+    width: 65%;
+    margin: 0 auto;
+}
+@@media (max-width: 600px){
+.offset-7 {
+    margin-left: .3% !important;
+}
+.col-3 {
+    display: none !important;
+}
+.col-9 {
+   width: 100% !important;
+}
+}
+</style>
+<section id="hero" class="hero align-items-center">  
+</section>
+
+<div class="container">
+    <div class="row">
+    
+    <h1 class="mt-4">Incidents</h1>
+    <hr style="height:2px; width:100%; border-width:0; color:#a6a6a6; background-color:#a6a6a6;"/>
+
+        <div class="col-md-9">
+            <form>
+                    <button type="submit" class="btn btn-primary mb-3" asp-controller="Ticket" asp-action="Create">New Incident</button>
+            </form>
+           
+        </div>
+
+        <div class="col-md-3">
+            <div class="input-group">
+                <input type="text" class="form-control  mb-3" placeholder="Ticket No">
+            <button type="button" class="btn btn-md btn-primary  mb-3">Find</button>
+        </div>
+        </div>
+    
+    <hr style="height:2px; width:100%; border-width:0; color:#a6a6a6; background-color:#a6a6a6;"/>
+    </div>
+
+  <div class="row">
+    
+         <div class="offset-7">
+          <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+
+  
+       <div class="col-9">
+    <div class="card mb-2">
+    <div class="card-body">
+      <h4 class="card-title"></h4>
+      <b>System: SC+ V.1.5</b> <b class="offset-1">Ticket No: 1003</b> <b class="offset-2">Date Reported: 13/09/2022</b><b class="offset-1">Status: Open</b>
+      <br/><br/>
+      <p class="card-text">
+          Some example text. Some example text.Some example text. Some example text.Some example text. Some example text.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam, metus in dictum maximus, neque diam vestibulum orci, sed iaculis arcu felis a sapien. Integer at mollis enim, eget euismod augue.
+
+      </p>
+      <a href="/Ticket/Edit" class="btn btn-success">Edit</a>
+      <a href="/Ticket/Details" class="btn btn-primary mx-3">View</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+   <div class="card mb-2">
+    <div class="card-body">
+      <h4 class="card-title"></h4>
+     <b>System: SC+ V.1.8</b> <b class="offset-1">Ticket No: 1004</b> <b class="offset-2">Date Reported: 14/09/2022</b><b class="offset-1">Status: Open</b>
+      <br/>
+      <br/>
+      <p class="card-text">
+          Some example text. Some example text.Some example text. Some example text.Some example text. Some example text.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam, metus in dictum maximus, neque diam vestibulum orci, sed iaculis arcu felis a sapien. Integer at mollis enim, eget euismod augue.
+
+      </p>
+      <a href="/Ticket/Edit" class="btn btn-success">Edit</a>
+      <a href="/Ticket/Details" class="btn btn-primary mx-3">View</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+   <div class="card mb-2">
+    <div class="card-body">
+      <h4 class="card-title"></h4>
+     <b>System: SC+ V.2.2</b> <b class="offset-1">Ticket No: 1005</b> <b class="offset-2">Date Reported: 16/09/2022</b><b class="offset-1">Status: Open</b>
+      <br/>
+      <br/>
+      <p class="card-text">
+          Some example text. Some example text.Some example text. Some example text.Some example text. Some example text.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam, metus in dictum maximus, neque diam vestibulum orci, sed iaculis arcu felis a sapien. Integer at mollis enim, eget euismod augue.
+
+      </p>
+      <a href="/Ticket/Edit" class="btn btn-success">Edit</a>
+      <a href="/Ticket/Details" class="btn btn-primary mx-3">View</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <div class="col-3">
+  <div class="card">
+@*      <div class="card-body">
+           <form>
+          <div class="mb-3">
+              <label for="ticket_no" class="form-label">Ticket No <span style="color:red"> *</span></label>
+              <input type="text" class="form-control">
+          </div>
+
+             <button class="btn btn-block btn-primary form-control">Find</button>
+      </form>
+      </div>
+      <hr />*@
+       <div class="card-body">
+      <div class="mb-3">
+      <label for="system" class="form-label">System <span style="color:red"> *</span></label>
+       <select class="form-select form-control">
+         <option>Select</option>
+         <option>Smart Care V-1.5</option>
+         <option>Smart Care V-2.5</option>
+      </select>
+     </div>
+
+       <div class="mb-3">
+      <label for="status" class="form-label">Status <span style="color:red"> *</span></label>
+       <select class="form-select form-control">
+         <option>Select</option>
+         <option>Processing</option>
+         <option>Open</option>
+         <option>Close</option>
+      </select>
+     </div>
+
+      <div class="mb-3">
+      <label for="from_date" class="form-label">Date Reported From <span style="color:red"> *</span></label>
+      <input type="date" class="form-control" />
+     </div>
+
+      <div class="mb-3">
+      <label for="to_date" class="form-label">To <span style="color:red"> *</span></label>
+      <input type="date" class="form-control" />
+     </div>
+
+     <div class="mb-3">
+         <button type="submit" class="btn btn-primary form-control">Find</button> 
+     </div>
+       </div>
+  </div>
+
+  </div>
+
+</div>
+
+</div>

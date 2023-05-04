@@ -1,0 +1,141 @@
+﻿@model TUSO.Domain.Dto.UserDetailDto
+@{
+    ViewData["Title"] = "User Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="/js/userAccount.js"></script>
+
+ <!-- BEGIN: Content-->
+    <div class="app-content content ">
+      <div class="content-overlay"></div>
+      <div class="header-navbar-shadow"></div>
+      <div class="content-wrapper container-xxl p-0">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+          <section class="app-user-view-account">
+            <div class="row">
+
+              <!-- User Sidebar -->
+              <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
+                <!-- User Card -->
+                <div class="card">
+                  <div class="card-body">
+                    <div class="user-avatar-section">
+                      <div class="d-flex align-items-center flex-column">
+                        <img
+                          class="img-fluid rounded mt-3 mb-2"
+                          src="../../../app-assets/images/portrait/small/avatar-s-2.jpg"
+                          height="110"
+                          width="110"
+                          alt="User avatar"
+                        />
+                        <div class="user-info text-center">
+                          <h4>Arpita Saha</h4>
+                          <span class="badge bg-light-secondary">Author</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="user-image-section mt-2">
+                        <div class="d-flex justify-content-around my-2 pt-75">
+                          <div class="d-flex align-items-start">
+                            <a href="@Url.ActionLink("Index", "ProfilePicture", new { @oid = Model.OID})" class="btn-primary btn waves-effect waves-float waves-light" title="Change image">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 me-50">
+                                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                </svg> Change picture
+                            </a>                                
+                          </div>
+
+                         @* <div class="d-flex align-items-start">
+                            <a href="/UserAccount/ChangePassword" class="btn-primary btn waves-effect waves-float waves-light" title="Change password">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+                                <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z"/>
+                                </svg>
+                              </a>
+                          </div>*@
+
+                        </div>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- /User Card -->
+              <!--/ User Sidebar -->
+              </div>
+
+              <!-- User Content -->
+              <div class="col-xl-8 col-lg-7 col-md-7 order-0 order-md-1">
+                
+                <!-- Project table -->
+                <div class="card">
+                  <h4 class="card-header fw-bolder border-bottom pb-50 mb-1">User Account Details</h4>
+                    <div class="info-container m-2">
+                      <ul class="list-unstyled">
+                        @*<li class="mb-75">
+                          <span class="fw-bolder me-25">Name:</span>
+                          <span>@Model.Name</span>
+                        </li>*@
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Username:</span>
+                          <span>@Model.Username</span>
+                        </li>
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Email:</span>
+                          <span>@Model.Email</span>
+                        </li>
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Role:</span>
+                          <span>@Model.Role</span>
+                        </li>
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Country:</span>
+                          <span>@Model.Country</span>
+                        </li>
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Province:</span>
+                          <span>@Model.Province</span>
+                        </li>
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Facility:</span>
+                          <span>@Model.Facility</span>
+                        </li>
+                                            
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Designation:</span>
+                          <span>@Model.Designation</span>
+                        </li>
+
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Cellphone:</span>
+                          <span>@Model.Cellphone</span>
+                        </li> 
+
+                        <li class="mb-75">
+                          <span class="fw-bolder me-25">Status:</span>
+                          <span class="badge bg-light-success">Active</span>
+                        </li>
+                        
+                      </ul>
+
+                      <div class="d-flex justify-content-center pt-2">
+                        <a href="javascript:;" class="btn btn-primary me-1" data-bs-target="#editUser" data-bs-toggle="modal">
+                          Edit
+                        </a>
+                      </div>
+                    </div>
+
+                </div>
+                <!-- /User-details -->
+
+              </div>
+              <!--/ User Content -->
+            </div>
+          </section>
+          
+        </div>
+      </div>
+    </div>
+    <!-- END: Content-->

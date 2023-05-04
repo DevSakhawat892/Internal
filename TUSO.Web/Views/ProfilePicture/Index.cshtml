@@ -1,0 +1,97 @@
+﻿@using TUSO.Domain.Entities
+@model TUSO.Domain.Entities.ProfilePicture
+
+@{
+    ViewData["Title"] = "Profile picture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- BEGIN: Content-->
+    <div class="app-content content ">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xxl p-0">
+            <div class="content-header row">
+                <div class="content-header-left col-md-9 col-12 mb-2">
+                    <div class="row breadcrumbs-top">
+                        <div class="col-12">
+                            <h2 class="content-header-title float-start mb-0">File Uploader</h2>
+                            <div class="breadcrumb-wrapper">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/UserAccount/Index">User</a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="/UserAccount/Details">User details</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Profile picture
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+
+            <div class="content-body">
+                <!-- Dropzone section start -->
+                <section id="dropzone-examples">
+
+                    <!--Profile picture-01 -->
+                   @* <div class="row">
+                        <div class="col-8 offset-2">
+                            <div class="card p-2">
+                                <div class="card-header">
+                                    <h4 class="card-title">Change profile picture</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">                                       
+                                    </p>
+                                    <form action="#" class="dropzone dropzone-area" id="dpz-single-file">
+                                        <div class="dz-message">Drop image here or click to upload.</div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                    <!-- Profile picture 01 -->
+
+                    <!-- Profile picture 02 -->
+                    <div class="row">
+                        <div class="col-8 offset-2">
+                            <div class="card p-2">
+                                <div class="card-header">
+                                    <h4 class="card-title">Change profile picture</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                       
+                                    </p>
+                                    <button id="clear-dropzone" class="btn btn-outline-primary mb-1">
+                                        <i data-feather="trash" class="me-25"></i>
+                                        <span class="align-middle">Clear</span>
+                                    </button>
+
+                                    <form asp-action="Index" asp-controller="ProfilePicture" method="post" enctype="multipart/form-data" class="dropzone dropzone-area" id="dpz-remove-all-thumb">
+                                       <div class="dz-message">Drop image here or click to upload.</div>
+                                       <div class="mb-1">
+                                          <label class="form-label" asp-for="ProfilePictures">Upload Picture</label>
+                                          <input id="profilePictures" type="file" value="" class="form-control" asp-for="ProfilePictures" autocomplete="off" />
+                                          <span asp-validation-for="ProfilePictures" class="text-danger"></span>
+                                       </div>
+                                    <button type="submit" value="submit" class="btn btn-primary data-submit me-1 mt-2" name="ProfilePicture">
+                                       Upload
+                                    </button>
+                                    <a asp-action="Details" asp-controller="UserAccount" class="btn btn-sm btn-primary mt-2 rounded-0 text-uppercase"><i class="fas fa-fast-backward"></i> Back </a>
+                                     </form>
+                                                         
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Profile picture 02 -->
+                </section>
+                <!-- Dropzone section end -->
+
+            </div>
+        </div>
+    </div>
+<!-- END: Content-->

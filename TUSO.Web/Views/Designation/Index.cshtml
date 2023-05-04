@@ -1,0 +1,124 @@
+﻿@using TUSO.Domain.Entities
+@model TUSO.Domain.Entities.Designation
+
+@{
+   ViewData["Title"] = "Designation";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+   var Department = ViewBag.Department as List<Department> ?? new List<Department>();
+}
+
+<script src="~/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="~/js/designation.js"></script>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+   <div class="content-overlay"></div>
+   <div class="header-navbar-shadow"></div>
+   <div class="content-wrapper container-xxl p-0">
+      <div class="content-header row">
+         <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+               <div class="col-12">
+                  <div class="breadcrumb-wrapper">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                           <a href="#">Configure</a>
+                        </li>
+                        <li class="breadcrumb-item active"> Designation </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="content-body">
+         <!-- Validation -->
+         <section class="bs-validation">
+            <div class="row">
+               <div class="col-12">
+                  <div class="row" id="basic-table">
+                     <div class="col-12">
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">Designation</h4>
+                           </div>
+                           <div class="card-body">
+                              <div class="table-responsive">
+                                 <table class="table datatables-basic">
+                                    <thead>
+                                       <tr>
+                                          <th>Sl</th>
+                                          <th>Department Name</th>
+                                          <th>Designation Name</th>
+                                          <th>Description</th>
+                                          <th>Action</th>
+                                       </tr>
+                                    </thead>
+
+                                    <tbody id="provinceDataTable">
+                                       @* @foreach (var item in Model)
+                                       {
+                                       <tr>
+                                       <td>
+                                       @Html.DisplayFor(modelItem => item.OID)
+                                       </td>
+                                       <td>
+                                       <a asp-action="Edit" asp-route-id="@item.OID">Edit</a> |
+                                       <a asp-action="Details" asp-route-id="@item.OID">Details</a> |
+                                       <a asp-action="Delete" asp-route-id="@item.OID">Delete</a>
+                                       </td>
+                                       </tr>
+                                       }*@
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="modal modal-slide-in fade" id="modals-slide-in">
+                  <div class="modal-dialog sidebar-sm">
+                     <form id="jquery-val-form" method="post" class="add-new-record modal-content pt-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                           <h5 class="modal-title"> Designation </h5>
+                        </div>
+                        <div class="modal-body flex-grow-1">
+                           <div class="mb-1">
+                              <input id="oid" type="hidden" asp-for="OID" />
+                              <label class="form-label" for="Province">Department Name</label>
+                              <select asp-for="DepartmentID" id="departmentID" asp-items="@(new SelectList(Department, "OID","DepartmentName"))" class="form-select">
+                                 <option value="">Select</option>
+                              </select>
+                              <span asp-validation-for="DepartmentID" class="text-danger"></span>
+                           </div>
+
+                           <div class="mb-1">
+                              <label class="form-label" asp-for="DesignationName">Designation Name</label>
+                              <input id="designationName" type="text" value="" class="form-control" placeholder="Designation name" asp-for="DesignationName" autocomplete="off" />
+                              <span asp-validation-for="DesignationName" class="text-danger"></span>
+                           </div>
+
+                           <div class="mb-1">
+                              <label class="form-label" asp-for="Description">Description</label>
+                              <input id="description" type="text" value="" class="form-control" placeholder="Description" asp-for="Description" autocomplete="off" />
+                              <span asp-validation-for="Description" class="text-danger"></span>
+                           </div>
+
+                           <button type="submit" class="btn btn-primary data-submit me-1" asp-controller="Designation" asp-action="Create" action="POST">Submit</button>
+                           <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+</div>

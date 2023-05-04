@@ -1,0 +1,106 @@
+﻿@using TUSO.Domain.Entities
+@model TUSO.Domain.Entities.Holiday
+
+@{
+   ViewData["Title"] = "Holiday";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="~/js/holiday.js"></script>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+   <div class="content-overlay"></div>
+   <div class="header-navbar-shadow"></div>
+   <div class="content-wrapper container-xxl p-0">
+      <div class="content-header row">
+         <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+               <div class="col-12">
+                  <div class="breadcrumb-wrapper">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                           <a href="#">Configure</a>
+                        </li>
+                        <li class="breadcrumb-item active"> Holiday </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="content-body">
+         <!-- Validation -->
+         <section class="bs-validation">
+            <div class="row">
+               <div class="col-12">
+                  <div class="row" id="basic-table">
+                     <div class="col-12">
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">Holiday</h4>
+                           </div>
+                           <div class="card-body">
+                              <div class="table-responsive">
+                                 <table class="table datatables-basic">
+                                    <thead>
+                                       <tr>
+                                          <th>Sl</th>
+                                          <th>Holiday Name</th>
+                                          <th>Start Date</th>
+                                          <th>End Date</th>
+                                          <th>Action</th>
+                                       </tr>
+                                    </thead>
+
+                                    <tbody id="holidayDataTable">
+                                      
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="modal modal-slide-in fade" id="modals-slide-in">
+                  <div class="modal-dialog sidebar-sm">
+                     <form id="jquery-val-form" method="post" class="add-new-record modal-content pt-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                           <h5 class="modal-title"> Holiday </h5>
+                        </div>
+
+                        <div class="modal-body flex-grow-1">
+                           <input id="oid" type="hidden" asp-for="OID" />
+
+                           <div class="mb-1">
+                              <label class="form-label" asp-for="HolidayName">Holiday Name</label>
+                              <input asp-for="HolidayName" id="holidayName" type="text" value="" class="form-control" placeholder="Holiday name" autocomplete="off" />
+                              <span asp-validation-for="HolidayName" class="text-danger"></span>
+                           </div>
+
+                           <div class="mb-1">
+                               <label class="form-label" asp-for="StartDate">Start date</label>
+                               <input id="startDate" type="date" value="" class="form-control" placeholder="Start date" asp-for="StartDate" autocomplete="off" onchange="getNextDate(event)"/>
+                           </div>
+
+                           <div class="mb-1">
+                               <label class="form-label" asp-for="EndDate">End date</label>
+                               <input asp-for="EndDate" type="date" value="" class="form-control" id="endDate" autocomplete="off" readonly/>
+                           </div>
+
+                           <button type="submit" class="btn btn-primary data-submit me-1" asp-controller="Holiday" asp-action="Index" action="POST">Submit</button>
+                           <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+</div>

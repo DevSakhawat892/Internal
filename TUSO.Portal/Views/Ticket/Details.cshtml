@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    .btn-primary{
+        background-color:#28a5e5 !important;
+    }
+    .hero {
+     min-height: 0 ! important; 
+     padding: 105px 0 0px 0 !important;
+} 
+.middle{
+    width: 65%;
+    margin: 0 auto;
+}
+.offset-11 {
+    margin-left: 94% !important;
+}
+@@media (max-width: 600px){
+.offset-11 {
+    margin-left: 71% !important;
+}
+}
+</style>
+<section id="hero" class="hero align-items-center">  
+</section>
+
+<div class="container mt-2 middle">
+    <div class="card">
+     
+        <div class="card-body">
+            <h1 class="mt-10">Incident</h1>
+            <hr style="height:2px; width:100%; border-width:0; color:#a6a6a6; background-color:#a6a6a6;"/>  
+               <form>
+                    <button class="offset-11 btn btn-md btn-primary" asp-controller="Ticket" asp-action="Index">Back</button>
+                </form>
+                <h4 class="card-title"></h4>
+             <b>System: SC+ V.1.8</b> <b class="offset-1">Ticket No: 1004</b> <b class="offset-4">Date Reported: 14/09/2022</b><b class="offset-1">Status: Open</b>
+              <br/><br/>
+              <p class="card-text">
+                  Some example text. Some example text.Some example text. Some example text.Some example text. Some example text.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam, metus in dictum maximus, neque diam vestibulum orci, sed iaculis arcu felis a sapien. Integer at mollis enim, eget euismod augue.
+              </p>
+              <hr style="height:2px; width:100%; border-width:0; color:#a6a6a6; background-color:#a6a6a6;"/>
+               <button class="offset-11 btn btn-primary" asp-controller="Ticket" asp-action="Index">Close</button>
+        </div>
+
+        <div class="card-header">
+           <form>
+              <div class="mb-3">
+              <label for="incident" class="form-label">Message</label>
+              <textarea class="form-control" id="incident" rows="3"></textarea>
+              </div>
+
+              <div class="mb-3">
+                 <button type="submit" class="btn btn-md btn-primary">Send</button>
+             </div>
+           </form>
+        </div>
+        <br/>
+
+        <div class="card-header">
+            <b>Mr. Pulak - 14 September 2022, 12:00 PM </b>
+            <br />
+            <p>Hi, I nedd more details to work on this incident. Can we talk?</p>
+            <br/>
+
+            <b>Mr. Terance - 14 September 2022, 12:05 PM </b>
+            <br />
+            <p>Sure, you will find me 0178963521</p>
+            <br/>
+
+            <b>Mr. Pulak - 20 September 2022, 9:00 AM </b>
+            <br />
+            <p>We have resolved this incident. Kindly wait for the next upgrader release. The due date of release is 30 Sep 2022. Many thanks.</p>
+            <br/>
+
+            <b>Mr. Terance - 14 September 2022, 12:05 PM </b>
+            <br />
+            <p>Ok, thank you..</p>
+            <br/>
+        </div>
+    </div>
+
+
+</div>
+

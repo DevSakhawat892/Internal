@@ -1,0 +1,119 @@
+﻿@using TUSO.Domain.Entities
+@model TUSO.Domain.Entities.Priority
+
+@{
+    ViewData["Title"] = "Priority";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var SLAList = ViewBag.SLAList == null? new List<SLA>(): ViewBag.SLAList as List<SLA>;
+}
+
+<script src="/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="/js/Priority.js"></script>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-xxl p-0">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrapper">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Configure</a>
+                                </li>
+
+                                <li class="breadcrumb-item active"> Priority </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <!-- Validation -->
+            <section class="bs-validation">
+                <div class="row">
+                    <!--District List-->
+                    <div class="col-12">
+                        <div class="row" id="basic-table">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Priority</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table datatables-basic">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sl</th>
+                                                        <th>Priority Name</th>
+                                                        <th>Duration</th>                                                       
+                                                        <th>SLA</th>                                                       
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody id="prioritydata">
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Modal-Add/Edit-->
+                    <div class="modal modal-slide-in fade" id="modals-slide-in">
+                        <div class="modal-dialog sidebar-sm">
+                            <form id="jquery-val-form" method="post" class="add-new-record modal-content pt-0">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                                <div class="modal-header mb-1">
+                                    <h5 class="modal-title">Priority</h5>
+                                </div>
+                                <input id="OID" type="hidden" asp-for="OID"/>
+                                
+                                <div class="modal-body flex-grow-1">
+                                   
+                                    <div class="mb-1">
+                                        <label class="form-label" asp-for="PriorityName">Priority Name</label>
+                                        <input id="priorityName" type="text" value="" class="form-control"  placeholder="Priority name" asp-for="PriorityName" autocomplete="off"/>
+                                        <span asp-validation-for="PriorityName" class="text-danger"></span>  
+                                    </div>
+
+                                     <div class="mb-1">
+                                        <label class="form-label" asp-for="Duration">Duration</label>
+                                        <input id="duration" type="text" value="" class="form-control"  placeholder="Duration" asp-for="Duration" autocomplete="off"/>
+                                        <span asp-validation-for="Duration" class="text-danger"></span>  
+                                    </div>
+
+                                    <div class="mb-1">
+                                       <label class="form-label" for="SlaID">SLA</label>                                         
+                                        <select asp-for="SLAID" id="slaID" asp-items="@(new SelectList(SLAList,"OID", "Description"))" class="form-select">
+                                            <option value="">Select</option>
+                                        </select>
+                                        <span asp-validation-for="SLAID" class="text-danger"></span>         
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary data-submit me-1" asp-controller="Priority" asp-action="Index" action="POST">Submit</button>
+                                    <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

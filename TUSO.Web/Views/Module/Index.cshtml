@@ -1,0 +1,101 @@
+﻿@using TUSO.Domain.Entities
+@model TUSO.Domain.Entities.Module
+
+@{
+   ViewData["Title"] = "Module";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="~/js/module.js"></script>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+   <div class="content-overlay"></div>
+   <div class="header-navbar-shadow"></div>
+   <div class="content-wrapper container-xxl p-0">
+      <div class="content-header row">
+         <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+               <div class="col-12">
+                  <div class="breadcrumb-wrapper">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                           <a href="#">Configure</a>
+                        </li>
+
+                        <li class="breadcrumb-item active"> Country </li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="content-body">
+         <!-- Validation -->
+         <section class="bs-validation">
+            <div class="row">
+               <div class="col-12">
+                  <div class="row" id="basic-table">
+                     <div class="col-12">
+                        <div class="card">
+                           <div class="card-header">
+                              <h4 class="card-title">Module</h4>
+                           </div>
+                           <div class="card-body">
+                              <div class="table-responsive">
+                                 <table class="table datatables-basic">
+                                    <thead>
+                                       <tr>
+                                          <th>Sl</th>
+                                          <th>Module Name</th>
+                                          <th>Description</th>
+                                          <th>Action</th>
+                                       </tr>
+                                    </thead>
+
+                                    <tbody id="countrydata">
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="modal modal-slide-in fade" id="modals-slide-in">
+                  <div class="modal-dialog sidebar-sm">
+                     <form id="jquery-val-form" method="post" class="add-new-record modal-content pt-0">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
+                        <div class="modal-header mb-1">
+                           <h5 class="modal-title">Module</h5>
+                        </div>
+                        <input id="OID" type="hidden" asp-for="OID" />
+
+                        <div class="modal-body flex-grow-1">
+
+                           <div class="mb-1">
+                              <label class="form-label" asp-for="ModuleName">Module Name</label>
+                              <input id="moduleName" type="text" value="" class="form-control" placeholder="Module name" asp-for="ModuleName" autocomplete="off" />
+                              <span asp-validation-for="ModuleName" class="text-danger"></span>
+                           </div>
+
+                           <div class="mb-1">
+                              <label class="form-label" asp-for="Description">Description</label>
+                              <input id="description" type="text" value="" class="form-control" placeholder="Description" asp-for="Description" autocomplete="off" />
+                              <span asp-validation-for="Description" class="text-danger"></span>
+                           </div>
+
+                           <button type="submit" class="btn btn-primary data-submit me-1" asp-controller="Module" asp-action="Index" action="POST">Submit</button>
+                           <button type="reset" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+   </div>
+</div>

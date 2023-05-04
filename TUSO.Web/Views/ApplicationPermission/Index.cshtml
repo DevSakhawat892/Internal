@@ -1,0 +1,107 @@
+﻿@using TUSO.Domain.Entities
+@*@model TUSO.Domain.Entities.ApplicationPermission*@
+@model IEnumerable<TUSO.Domain.Entities.ApplicationPermission>
+
+@{
+   ViewData["Title"] = "Application Permission";
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+   var roles = ViewBag.RoleList as List<Role> ?? new List<Role>();
+   //var modules = ViewBag.ModuleList as List<Module> ?? new List<Module>();
+}
+
+<script src="~/app-assets/vendors/js/jquery/jquery.min.js"></script>
+<script src="~/js/appPermission.js"></script>
+
+<!-- BEGIN: Content-->
+<div class="app-content content ">
+   <div class="content-overlay"></div>
+   <div class="header-navbar-shadow"></div>
+   <div class="content-wrapper container-xxl p-0">
+      <div class="content-header row">
+         <div class="content-header-left col-md-9 col-12 mb-2">
+            <div class="row breadcrumbs-top">
+               <div class="col-12">
+                  <div class="breadcrumb-wrapper">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                           <a href="#">Configure</a>
+                        </li>
+
+                        <li class="breadcrumb-item active">Application Permission</li>
+                     </ol>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="content-body">
+         <!-- Validation -->
+         <section class="bs-validation">
+            <!-- Striped rows start -->
+            <div class="row" id="table-striped">
+               <div class="col-12">
+                  <div class="card">
+                     <div class="card-header">
+                        <h4 class="card-title">Application Permission</h4>
+                     </div>
+                     <div class="card-body">
+                        <div class="table">
+                           <div class="row">
+                              <div class="col-3">
+                                 <div class="mb-1 ms-0">
+                                    <label class="form-label fw-bold fs-4">Role</label>
+                                    <select class="form-control" id="role" onchange="moduleCheck(event)">
+                                            <option value="">Select Role</option>
+                                        </select>
+                                    @*<select name="RoleID" id="roleID" asp-items="@(new SelectList(roles,"OID","RoleName"))" class="form-select">
+                                       <option value="">Select</option>
+                                    </select>*@
+                                    @*<span asp-validation-for="RoleID" class="text-danger"></span>*@
+                                 </div>
+                              </div>
+                           </div>
+
+                           <table id="table example" class="table table-striped">
+                              <thead>
+                                 <tr>
+                                    @*<th>Role</th>*@
+                                    <th>Module</th>
+                                    <th>Create</th>
+                                    <th>Read</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                    @*<th>Action</th>*@
+                                 </tr>
+                                 <tr>
+                                    <td><input class="" onclick="checkAll()" id="selectAll" type="checkbox" /> <strong><span class="me-1">All</span></strong> </td>
+                                    <td><input class="check" onclick="createCheck()" name="create" id="create" type="checkbox"  /></td>
+                                    <td><input class="check" onclick="readCheck()" name="read" id="read" type="checkbox" /></td>
+                                    <td><input class="check" onclick="editCheck()" name="edit" id="edit" type="checkbox" /></td>
+                                    <td><input class="check" onclick="deleteCheck()" name="delete" id="delete" type="checkbox" /></td>
+                                 </tr>
+                              </thead>
+
+                              <tbody id="LoadAppPermission">
+                                
+                              </tbody>
+                           </table>
+                           <div class="row">
+                              <form method="post" class="add-new-record pt-0 mt-1">
+                                 <button type="submit" class="btn btn-primary data-submit me-1 float-end" onclick="PostMultipleRow(this)" action="POST">Submit</button>
+                                 @*<button type="submit" class="btn btn-primary data-submit me-1 float-end" asp-controller="ApplicationPermission" asp-action="Index" onclick="PostMultipleRow()" action="POST">Submit</button>*@
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Striped rows end -->            
+         </section>
+      </div>
+   </div>
+</div>

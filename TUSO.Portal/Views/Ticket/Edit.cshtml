@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .btn-primary{
+        background-color:#28a5e5 !important;
+    }
+    .hero {
+     min-height: 0 ! important; 
+     padding: 105px 0 0px 0 !important;
+} 
+.middle{
+    width: 70%;
+    margin: 0 auto;
+}
+
+</style>
+<section id="hero" class="hero align-items-center">  
+  </section>
+<div class="container mt-2 middle">
+    <div class="card">
+        <div class="card-header">
+               <h1>Edit Incident</h1>
+      <p>Fields marked by<span style="color:red"> *</span> are mandetory</p>
+        </div>
+        <div class="card-body">
+             
+    <form>
+      <div class="mb-3">
+      <label for="system" class="form-label">System <span style="color:red"> *</span></label>
+       <select class="form-select form-control">
+         <option>Select</option>
+         <option>Smart Care V-1.5</option>
+         <option>Smart Care V-2.5</option>
+         <option>Hardware</option>
+      </select>
+     </div>
+
+      <div class="mb-3">
+      <label for="system" class="form-label">Province <span style="color:red"> *</span></label>
+       <select class="form-select form-control">
+         <option>Select</option>
+         <option>Dhaka</option>
+         <option>Chittagong</option>
+         <option>Rajsahi</option>
+      </select>
+     </div>
+
+       <div class="mb-3">
+      <label for="system" class="form-label">District <span style="color:red"> *</span></label>
+       <select class="form-select form-control">
+         <option>Select</option>
+         <option>Comilla</option>
+         <option>Dhaka</option>
+         <option>Gazipur</option>
+      </select>
+     </div>
+
+       <div class="mb-3">
+      <label for="facility" class="form-label">Facility <span style="color:red"> *</span></label>
+       <select class="form-select form-control">
+         <option>Select</option>
+         <option>Mbabane</option>
+         <option>Others</option>
+      </select>
+     </div>
+
+      <div class="mb-3">
+      <label for="pririty" class="form-label">Priority <span style="color:red"> *</span></label>
+       <select class="form-select form-control">
+         <option>Select</option>
+         <option>Argent</option>
+         <option>Low</option>
+         <option>Very low</option>
+      </select>
+     </div>
+
+     <div class="mb-3">
+          <label for="date_of_incident" class="form-label">Date of Incident <span style="color:red"> *</span></label>
+          <input type="date" class="form-control">
+      </div>
+
+      <div class="mb-3">
+          <label for="incident" class="form-label">Incident <span style="color:red"> *</span></label>
+          <textarea class="form-control" id="incident" rows="3"></textarea>
+      </div>
+
+      <div class="mb-3">
+          <label for="screenshot" class="form-label">Attach Screenshot</label>
+          <input type="file" class="form-control">
+      </div>
+
+     <div class="mb-3">
+         <button type="submit" asp-controller="Ticket" asp-action="Index" action="POST" class="btn btn-md btn-primary">Save</button> 
+         <button type="submit" asp-controller="Ticket" asp-action="Index" class="btn btn-md btn-outline-danger">Close</button> 
+     </div>
+
+    </form>
+        </div>
+    </div>
+
+
+</div>
+
